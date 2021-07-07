@@ -1,0 +1,55 @@
+/* Styles for our first theme for WordPress 
+Theme Name: Theme1
+Author: Robin VanGilder
+Author URL: https://rtvgilder.com
+Description: Our first WordPress theme!
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: beige;
+}
+header{
+    height: 100px;
+    background-color: white;
+}
+article.post{
+    float: left;
+    width: 63%;
+}
+main{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+aside{
+    float: right;
+    width: 34%;
+    height: 200px;
+    background-color: green;
+}
+footer{
+    height: 200px;
+    background-color: #ccc;
+    clear: both;
+}
+.copyright p{
+    float: left;
+    margin-right: 30px;
+    margin-left: 10px;
+    line-height: 50px;
+    height: 50px;
+}
+.copyright{
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+}
+span{
+    font-style: italic;
+}
