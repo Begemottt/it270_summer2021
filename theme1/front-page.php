@@ -12,6 +12,13 @@ get_header();
     <?php while(have_posts()): the_post(); ?>
     <?php endwhile; ?>
     <h2><?php the_title(); ?></h2>
+    <section class="thumbnail">
+        <?php if(has_post_thumbnail()) : ?>
+            <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail(); ?>
+            </a>
+        <?php endif; ?>
+    </section>
     <?php the_content(); ?>
     <?php else : ?>
     <?php echo wpautop('Sorry, no posts were found!'); ?>
