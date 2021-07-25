@@ -10,7 +10,7 @@
     <!-- Links -->
     <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet" type="text/css">
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(! is_front_page() ? "inner-page" : "" ); ?>>
 <header>
     <div class="inner_header">
     <div id="top">

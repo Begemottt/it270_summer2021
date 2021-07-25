@@ -2,6 +2,7 @@
 get_header();
 ?>
 <!-- ^^^ Header Function -->
+<div id="header_image"></div>
 <main>
 <!-- If we have posts... show me the posts!! -->
 <!-- If not, say we don't have posts. -->
@@ -40,9 +41,8 @@ get_header();
         <?php endif; ?>
         <!-- Remember: Search results originally working off the index.php page-->
     </article>
-    <aside>
     
-    </aside>
+    <?php get_sidebar(); ?>
     
 </main>
 

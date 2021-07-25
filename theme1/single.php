@@ -2,6 +2,7 @@
 get_header();
 ?>
 <!-- ^^^ Header Function -->
+<div id="header_image"></div>
 <main>
 <!-- If we have posts... show me the posts!! -->
 <!-- If not, say we don't have posts. -->
@@ -20,6 +21,11 @@ get_header();
         <?php else : ?>
         <?php echo wpautop('Sorry, no posts were found!'); ?>
         <?php endif; ?>
+
+        <span class="next-previous">
+            <?php (previous_post_link()) ? '%link' : ''; ?> &nbsp; &nbsp; <?php (next_post_link()) ? '%link' : ''; ?>
+        </span>
+
         <?php comments_template(); ?>
     </article>
 
@@ -30,4 +36,5 @@ get_header();
     
 </main>
 <!-- VVV Footer Function -->
-<?php get_footer(); ?>
+<?php
+get_footer();

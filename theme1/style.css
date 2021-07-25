@@ -14,9 +14,35 @@ Description: Our first WordPress theme!
 body{
     background: beige;
 }
+
+/* Background image header */
+#header_image{
+    background-attachment: fixed;
+    background-position: center 150px;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+.home #header_image{
+    background-image: url('https://rtvgilder.com/it270/site1/wp-content/uploads/yellowstone-header-home.jpg');
+    min-height: 600px;
+}
+.inner-page #header_image{
+    background-image: url('https://rtvgilder.com/it270/site1/wp-content/uploads/yellowstone-inner.jpg');
+    min-height: 350px;
+}
+#search_error{
+    max-width: 1100px;
+    margin: 150px auto 20px auto;
+}
+
+
 header{
     height: 150px;
+    width: 100%;
     background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 div.inner_header{
     max-width: 1100px;
@@ -37,7 +63,6 @@ div#top{
     left: 0;
     display: flex;
     width: 100%;
-
 }
 #top #searchform{
     position: absolute;
@@ -116,6 +141,7 @@ div#top{
 }
 .primary-nav li:hover .sub-menu li{
     margin-left: 0;
+    width: 110px;
 }
 
 
@@ -125,16 +151,48 @@ article.post{
 }
 main{
     max-width: 1100px;
-    margin: 20px auto;
+    margin: 0px auto;
 }
 aside{
     float: right;
     width: 34%;
-    height: 200px;
-    background-color: green;
+    /* height: 400px;
+    background-color: white; */
 }
+aside section{
+    background: lightblue;
+    padding: 3%;
+}
+aside section p:last-child{
+    margin-bottom: 0;
+}
+.menu-our-tours-menu-container ul{
+    margin-left: 15px;
+    margin-bottom: 15px;
+    list-style-type: none;
+}
+.menu-our-tours-menu-container ul li{
+    line-height: 1.3em;
+    font-weight: bold;
+}
+#text-2{
+    background-color: transparent;
+    border: 2px solid orange;
+}
+
+.fullwidth{
+    clear: both;
+    background-color: lightgray;
+    width: 100%;
+}
+.fullwidth section#custom_html-3{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
 footer{
-    height: 200px;
     background-color: #ccc;
     clear: both;
 }
@@ -153,8 +211,43 @@ footer{
     justify-content: center;
     align-content: center;
 }
+.wrapper{
+    max-width: 1100px;
+    margin: 20px auto 20px;
+    clear: both;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.third{
+    /* 940px grid */
+    width: 300px;
+    text-align: justify;
+}
+.third:last-of-type{
+    margin-right: 0;
+}
+.half{
+    width: 500px;
+    text-align: justify;
+}
+.half img{
+    margin: 0 auto 0 auto;
+    display: block;
+    width: 100%;
+}
+
+
 p{
     margin-bottom: 10px;
+}
+p.big{
+    font-size: 1.3em;
+    margin: 0 5% 20px 5%;
 }
 a{
     color: brown;
@@ -176,6 +269,14 @@ h3{
     font-size: 1.5em;
     color: darkblue;
     margin-bottom: 8px;
+}
+blockquote{
+    font-size: 1.7em;
+    font-style: italic;
+    color: burlywood;
+    text-align: center;
+    padding: 0 10% 20px 10%;
+    line-height: 1.2;
 }
 span{
     font-style: italic;
@@ -311,6 +412,10 @@ form.comment-form input, form.comment-form textarea{
 		background-color: rgba(0,0,0,.5);
 		border-top-color: transparent;
 	}
+    .primary-nav li:hover .sub-menu li{
+        margin-left: 0;
+        width: auto;
+    }
 	.primary-nav > li:first-child {
 		border-top: 1px solid rgba(0,0,0,.2);
 	}

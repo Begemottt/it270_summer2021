@@ -1,6 +1,6 @@
 <?php
 get_header();
-/* Template Name: Tours Page*/
+/* Template Name: About Page*/
 ?>
 <!-- ^^^ Header Function -->
 <div id="header_image" class="small"></div>
@@ -21,11 +21,9 @@ get_header();
 </article>
 
 <aside id="secondary" class="widget-area">
-    <?php dynamic_sidebar( 'sidebar-tours' ); ?>
+    <?php dynamic_sidebar( 'sidebar-about' ); ?>
 </aside>
 
 </main>
 <!-- VVV Footer Function -->
-<?php
-dynamic_sidebar( 'sidebar-buy' );
-get_footer();
+<?php get_footer(); ?>
