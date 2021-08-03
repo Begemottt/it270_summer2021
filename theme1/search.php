@@ -3,7 +3,11 @@ get_header();
 ?>
 <!-- ^^^ Header Function -->
 <div id="search_error">
-    <img src="<?php echo get_template_directory_uri(); ?>/../../uploads/searching.jpg" alt="searching" />
+    <?php if(have_posts()) : ?>
+        <img src="<?php echo get_template_directory_uri(); ?>/../../uploads/pink_sky.png" alt="searching" />
+    <?php else : ?>
+        <img src="<?php echo get_template_directory_uri(); ?>/../../uploads/searching.jpg" alt="searching" />
+    <?php endif; ?>
 </div>
 <main>
 <!-- If we have posts... show me the posts!! -->
@@ -12,11 +16,11 @@ get_header();
         if(have_posts()) :
     ?>
     <article class="post">
-        <h1 class="page-title">
+        <h2 class="page-title">
             <?php _e( 'Search Results for: ', 'site1'); ?>
             <span class='page-description'><?php echo get_search_query(); ?></span>
-        </h1>
-        <h2 class="pagetitle">Our findings for
+        </h2>
+        <h3 class="pagetitle">Our findings 
             <?php
                 $allsearch = new WP_Query("s=$s&showposts=-1");
                 $key = wp_specialchars($s, 1);
@@ -29,10 +33,10 @@ get_header();
                 _e('articles/pages');
                 wp_reset_query();
             ?>
-        </h2>
+        </h3>
 
         <?php while(have_posts()): the_post(); ?>
-        <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
         <section class="meta">
             <span><strong>Posted By:</strong> <?php the_author(); ?></span>
@@ -66,9 +70,6 @@ get_header();
         <?php get_search_form(); ?>
         <?php endif; ?>
     </article>
-    <aside>
-    
-    </aside>
     
 </main>
 

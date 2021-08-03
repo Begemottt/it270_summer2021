@@ -17,6 +17,13 @@ get_header();
             <span><strong>Posted By:</strong> <?php the_author(); ?></span>
             <span><strong>Posted On:</strong> <?php the_time('F j, Y g:i a'); ?></span>
         </section>
+        <section class="thumbnail">
+            <?php if(has_post_thumbnail()) : ?>
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail('full'); ?>
+                </a>
+            <?php endif; ?>
+        </section>
         <?php the_content(); ?>
         <?php else : ?>
         <?php echo wpautop('Sorry, no posts were found!'); ?>
@@ -29,9 +36,7 @@ get_header();
         <?php comments_template(); ?>
     </article>
 
-    <aside>
-    
-    </aside>
+    <?php get_sidebar(); ?>
 
     
 </main>

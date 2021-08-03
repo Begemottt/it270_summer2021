@@ -6,12 +6,20 @@ get_header();
 <main>
 <!-- If we have posts... show me the posts!! -->
 <!-- If not, say we don't have posts. -->
-    <?php 
-        if(have_posts()) :
-    ?>
     <article class="post">
+        <h1 class="page-title">
+            <?php
+            _e( 'Category Results for: ', 'site1'); 
+            
+            $categories = get_the_category();
+            if (!empty($categories)){
+                echo esc_html($categories[0]->name);
+            }
+            ?>
+            <span class='page-description'><?php echo get_search_query(); ?></span>
+        </h1>
         <?php while(have_posts()): the_post(); ?>
-        <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
         <section class="meta">
             <span><strong>Posted By:</strong> <?php the_author(); ?></span>
@@ -21,7 +29,7 @@ get_header();
         <section class="thumbnail">
             <?php if(has_post_thumbnail()) : ?>
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail('large'); ?>
+                    <?php the_post_thumbnail(); ?>
                 </a>
             <?php endif; ?>
         </section>
@@ -33,12 +41,6 @@ get_header();
         </span>
 
         <?php endwhile ?>
-        <?php else : ?>
-        <h2>Search Results: </h2>
-        <p>Sorry, but nothing matched your search terms.</p>
-        <p>Would you like to search again with different keywords?</p>
-        <?php get_search_form(); ?>
-        <?php endif; ?>
         <!-- Remember: Search results originally working off the index.php page-->
     </article>
     

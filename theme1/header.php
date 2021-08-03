@@ -12,10 +12,11 @@
 </head>
 <body <?php body_class(! is_front_page() ? "inner-page" : "" ); ?>>
 <header>
-    <div class="inner_header">
     <div id="top">
         <?php get_search_form(); ?>
     </div>
+    <div class="inner_header">
+    
     <a href="<?php echo get_home_url(); ?>">
         <img id="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="The Great Adventures logo, orange text in a nice cartoonish style." />
     </a>

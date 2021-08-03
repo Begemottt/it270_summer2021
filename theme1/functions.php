@@ -13,7 +13,8 @@ add_theme_support('post-thumbnails');
 register_nav_menus(array(
     'primary' => 'Primary Menu',
     'footer' => 'Footer Menu',
-    'tours' => 'Tours Menu'
+    'tours' => 'Tours Menu',
+    'hotels' => 'Hotels Menu'
 ));
 
 //Page Slug Body Class
@@ -26,6 +27,8 @@ function add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'add_slug_body_class' );
 add_filter('widget_text', 'do_shortcode');
+// Gets rid of extra p tags
+remove_filter('the_content', 'wpautop');
 
 function my_theme_scripts() {
     wp_enqueue_script( 'astuteo', get_template_directory_uri() . '/js/jquery.min.js', '1.0.0', false );
