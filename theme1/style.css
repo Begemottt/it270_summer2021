@@ -283,7 +283,6 @@ footer{
 .third{
     /* 940px grid */
     width: 300px;
-    text-align: justify;
 }
 .third h3{
     text-align: center;
@@ -293,7 +292,6 @@ footer{
 }
 .half{
     width: 500px;
-    text-align: justify;
 }
 .half h3{
     text-align: center;
@@ -612,7 +610,8 @@ form.comment-form input, form.comment-form textarea{
 
 @media only screen and (max-width: 1100px){
     .third, .half{
-        width: 80%;
+        width: initial;
+        max-width: 600px;
     }
     section.row{
         flex-direction: column;
