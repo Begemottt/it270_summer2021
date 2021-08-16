@@ -1,0 +1,304 @@
+// *[ [ [ _header.scss ] ] ]
+// !Styles for the page header!
+
+// [ MAKE EVERYTHING FILL ITS CONTAINER!!! ]
+nav#site-navigation, div.menu-upper-nav-container{
+    width: 100%;
+    height: 100%;
+}
+
+header{
+
+    // Positioning & Size
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 5;
+
+    // Desktop Styles
+    @include size('lg'){
+        height: 6vh;
+        // Flex
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        justify-items: center;
+        align-items: center;
+        
+        // Hide the button
+        div#mobile_nav_button{
+            display: none;
+        }
+
+        // Search Box
+        div#top{
+            position: absolute;
+            top: 6vh;
+            right: 1vw;
+            background-color: $aa_white;
+            border: 2px solid $aa_red;
+            padding: 1vh;
+            form{
+                label{
+                    color: $aa_red;
+                    font-size: 1.5em;
+                }
+                input[type="text"]{
+                    background-color: $aa_white;
+                    color: $black;
+                    line-height: 1.5;
+                    font-size: 1em;
+                }
+                input[type="submit"]{
+                    height: 100%;
+                    width: auto;
+                    display: inline-block;
+                    background-color: $aa_red;
+                    color: $aa_white;
+                }
+            }
+        }
+
+        // Navigation Bar
+        ul.upper-nav{
+            // Positioning & Size
+            height: 100%;
+            width: 100%;
+
+            // Flex
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            justify-items: center;
+            align-items: center;
+            align-content: middle;
+
+            // Stacking!
+            z-index: 10;
+
+            // Buttons
+            li{
+                // Positioning & Size
+                height: 100%;
+                width: 20%;
+                display: inline-block;
+
+                // Appearance
+                text-align: center;
+
+                // Link Styles
+                a{
+                    // Positioning & Size
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    padding-top: 2vh;
+
+                    // Appearance
+                    background-color: $aa_red;
+                    color: $white;
+                    font-weight: bold;
+                    text-decoration-color: transparent;
+                    border-radius: 0 0 10px 10px;
+                    border-bottom: 2px solid $aa_white;
+                    border-left: 2px solid $aa_red;
+                    &:last-child{
+                        border-right: 2px solid $aa_red;
+                    }
+                    // Animations
+                    transition: background-color 200ms, color 200ms, text-decoration-color 200ms, padding-top 200ms;
+                    
+                    // When hovered or focused
+                    &:hover, &:focus, &:focus-within{
+                        padding-top: 3vh;
+
+                        background-color: $aa_red;
+                        color: $aa_orange;
+                        text-decoration-color: $aa_orange;
+                    }
+                }
+
+                // Sub-menu
+                &:hover ul.sub-menu, &:focus ul.sub-menu, &:focus-within ul.sub-menu{
+                    display: flex;
+                }
+                ul.sub-menu{
+                    display: none;
+
+                    li{
+                        width: 100%;
+                        z-index: 15;
+                        a{
+                            border-radius: 10px;
+                            border: 2px solid $aa_white;
+                            padding-top: 1vh;
+                            padding-bottom: 1vh;
+                            transition: padding-top 200ms, padding-bottom 200ms;
+                            &:hover, &:focus, &:focus-within{
+                                padding-top: 1.5vh;
+                                padding-bottom: 0.5vh;
+                            }
+                        }
+                    }
+                    &:hover ul.sub-menu, &:focus ul.sub-menu, &:focus-within ul.sub-menu{
+                        display: flex;
+                    }
+                    ul.sub-menu{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // Mobile styles
+    @include size('sm'){
+        // Sizing & Position
+        width: 100%;
+        // Flex
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+        // Appearance
+        background-color: $shadow_blue;
+
+        // Search Box
+        div#top{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            form{
+                width: 100%;
+                div{
+                    width: 100%;
+                    background-color: $shadow_blue;
+                    padding: 8px;
+                    label{
+                        color: $aa_white;
+                    }
+                    input[type="text"]{
+                        background-color: $aa_white;
+                        color: $black;
+                        line-height: 1.5;
+                        font-size: 1em;
+                    }
+                    input[type="submit"]{
+                        height: 100%;
+                        width: auto;
+                        display: inline-block;
+                        background-color: $aa_red;
+                        color: $aa_white;
+                    }
+                }
+            }
+        }
+
+        // Menu button!
+        div#mobile_nav_button{
+            // Flex
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: center;
+
+            // Sizing & position
+            width: 100%;
+            height: 10vh;
+            background-color: $aa_red;
+            border-bottom: 2px solid $aa_white;
+            color: $white;
+
+            button{
+                width: 100%;
+                height: 100%;
+                border: none;
+                background-color: $aa_red;
+                color: $aa_white;
+                font-weight: bold;
+                span{
+                    transform: rotate(0deg);
+                    transition: transform 300ms;
+                    display: inline-block;
+                }
+                &.active span{
+                    transform: rotate(180deg);
+                }
+            }
+
+        }
+
+        // Nav menu
+        div.menu-upper-nav-container{
+            display: none;
+            transform: translateY(-110%);
+            transition: transform 200ms;
+            &.visible{
+                display: block;
+                transform: translateY(0);
+                width: 100%;
+                height: 100%;
+            }
+            ul{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-content: center;
+                align-items: center;
+
+                li{
+                    width: 100%;
+                    height: 10vh;
+                    &.active{
+                        height: auto;
+                    }
+                    margin: 1vh 0 1vh 0;
+                    padding: 12px;
+                    background-color: $aa_red;
+                    a{
+                        width: 100%;
+                        height: 100%;
+                        font-size: 1.5em;
+                        color: $white;
+                        text-decoration: none;
+                        display: block;
+                        &:active{
+                            color: $aa_orange;
+                        }
+                    }
+
+                }
+                ul{
+                    display: none;
+                }
+                li.active ul{
+                    display: flex;
+                    z-index: 10;
+                    height: auto;
+                    li{
+                        height: auto;
+                        ul{
+                            width: 100%;
+                            height: auto;
+                            li{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// *[ Move the body down based on the height of the header ]
+body{
+    margin-top: 6vh;
+}

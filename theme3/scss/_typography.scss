@@ -1,0 +1,56 @@
+// *[ [ [ _typography.scss ] ] ]
+// !Typographical styles for all manner of text!
+
+// [ Mixin Declarations ]
+@mixin font_body{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+@mixin font_header{
+    font-family: 'Libre Baskerville', serif;
+}
+
+// [ Basic Typography ]
+h1, h2, h3{
+    @include font_header;
+    font-weight: bold;
+    clear: both;
+}
+p, span, button, li, figcaption{
+    @include font_body;
+}
+
+// [ Specific Typography ]
+@include size('lg'){
+    h1{
+        font-size: 3em;
+    }
+    h2{
+        font-size: 2em;
+    }
+}
+@include size('sm'){
+    h1{
+        font-size: 2em;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+}
+
+
+// [ Links! ]
+a{
+    color: $aa_red;
+    text-decoration: none;
+    border-bottom: 1px dotted $aa_red;
+    text-shadow: 1px 1px 1px $shadow_black;
+
+    &:hover{
+        color: $aa_orange;
+        border-bottom: 1px solid $aa_orange;
+        text-shadow: 2px 2px 1px $shadow_black;
+    }
+    &:active{
+        color: $black;
+    }
+}

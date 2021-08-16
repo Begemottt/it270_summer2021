@@ -1,0 +1,101 @@
+// *[ [ [ _layout.scss ] ] ]
+// !This is the file where all the general layout styles are written!
+
+// [ [ Basics ] ]
+html{
+    background-color: $aa_grey;
+    
+}
+
+@import 'header';
+
+main{
+    // Positioning & Sizing
+    width: 100%;
+
+    // Flex
+    display: flex;
+    @include size("lg"){
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        align-items: flex-start;
+    }
+    @include size("sm"){
+        flex-direction: column;
+        justify-content: flex-start;
+        justify-items: center;
+        align-items: center;
+    }
+
+
+    // Articles
+    article{
+        // Positioning & Sizing
+        margin: 12px 12px 24px 12px;
+        padding: 24px;
+        background-color: $aa_white;
+
+        // Appearance
+        box-shadow: 8px 8px 4px $shadow_black;
+        h1{
+            margin: 12px;
+        }
+        p{
+            margin: 24px;
+        }
+
+        // Images!
+        section.thumbnail a img{
+            max-width: 100%;
+            height: auto;
+            border: 1px solid $aa_orange;
+            padding: 4px;
+            margin: 4px auto 4px auto;
+            &:hover{
+                border: 1px solid $aa_red;
+            }
+        }
+
+        // Sizing for different screen sizes
+        @include size('lg'){
+            &.post{
+                width: 800px;
+            }
+            &.sidebar{
+                width: 400px;
+            }
+        }
+        @include size("sm"){
+            width: 95%;
+        }
+
+        // Styles for Walkthrough Pages
+        hr{
+            width: 80%;
+            margin: 12px auto 12px auto;
+        }
+        ul.walkthrough{
+            margin: 12px auto 12px auto;
+            max-width: 400px;
+            list-style-type: decimal;
+            li{
+                margin: 4px;
+                padding: 4px;
+                border: 2px solid transparent;
+                &:hover{
+                    background-color: $white;
+                    border: 2px solid $aa_orange;
+                }
+            }
+        }
+    }
+}
+
+// Special accomodation for category page images!!
+body.category section.thumbnail, body.search section.thumbnail{
+    float: left;
+    img{
+        margin: 24px;
+    }
+}

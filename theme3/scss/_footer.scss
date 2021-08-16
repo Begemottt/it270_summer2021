@@ -1,0 +1,36 @@
+// *[ [ [ _footer.scss ] ] ]
+// !Styles for the footer block/sidebar!
+
+// [ Fixing the width! ]
+section#block-9{
+    width: 100%;
+}
+
+// Footer Styles - Nice and simple!!
+div.wp-block-columns{
+    // Flex
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin-top: 24px;
+
+    // Appearance
+    background-color: $aa_red;
+    border-top: 2px solid $aa_white;
+    div.wp-block-column{
+        border: 2px solid $aa_white;
+        box-shadow: 4px 4px 2px $shadow_black;
+        margin: 24px;
+        padding: 12px;
+        background-color: $white;
+        @include size('lg'){
+            width: 40%;
+        }
+        @include size('sm'){
+            width: 75%;
+        }
+    }
+}

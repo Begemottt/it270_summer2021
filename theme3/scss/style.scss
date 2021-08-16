@@ -1,0 +1,17 @@
+// *[ [ [ [ [ MAIN SCSS FILE ] ] ] ] ]
+// !Exports to the CSS file, so everything gets imported here!
+
+// *[ Basics, import first so they take effect everywhere ]
+@import 'size';
+@import 'reset';
+@import 'colors';
+@import 'typography';
+
+// *[ Layout and component-specific styles ]
+@import 'layout';
+@import 'footer';
+
+// !Get rid of the WP Admin Bar! For Testing Purposes only, remove later!
+#wpadminbar{
+    display: none;
+}
